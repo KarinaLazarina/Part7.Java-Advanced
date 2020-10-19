@@ -5,33 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
 
 @AllArgsConstructor
-@Data
 @NoArgsConstructor
+@Data
 @Entity
-public class User {
+public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotBlank
-    private String name;
-
-    @Positive
-    @Max(100)
-    private int age;
-
-    @NotBlank
-    private String email;
-
-    private String password;
+    private String model;
 
     @OneToOne
-    private Car car;
-
+    private User user;
 }
